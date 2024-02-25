@@ -1,0 +1,82 @@
+{% load static %}
+
+<html lang="ja">
+
+<head>
+    <!-- ページの文字エンコーディング指定“utf-8"  -->
+    <meta charset="utf-8">
+    <!-- モバイルデバイス上での表示制御。ビューポートの幅を初期のズームレベル1でデバイスの幅に合わせる　-->
+    <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
+    <!--  ページの短い説明  -->
+    <meta name="description" content="Python3エンジニア認定基礎試験／Python3エンジニア認定データ分析試験／Python3エンジニア認定実践試験に合格するための模擬試験WEBアプリです。">
+    <!--  ページの作者情報の提供  -->
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!--Bootstrap core CSS -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+    <!--custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran: 100,200,300,400,500,600,700,800,900"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato: 100,100i,300,300i,400,400i,700,700i,900,900i"
+          rel="stylesheet">
+
+    <!-- My Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}">
+
+    {% block head %}{% endblock %}
+
+    <!--favicon-->
+    <link rel="icon" href="{% static 'assets/favicon.ico' %}">
+
+</head>
+<body>
+    <div id="wrapper">
+        <!-- navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'quiz1:index' %}">PRIVATE DIARY</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item {% block active_inquiry %}{% endblock %}">
+                            <a class="nav-link" href="#">INQUIRY</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item {% block active_signup %}{% endblock %}">
+                            <a class="nav-link" href="#">Sign Up</a>
+                        </li>
+                        <li class="nav-item {% block active_login %}{% endblock %}">
+                            <a class="nav-link" href="#">Log In</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        {% block header%}{% endblock %}
+
+        {% block contents%}{% endblock %}
+
+        <!-- Footer -->
+        <footer class="py-5 bg-black">
+            <div class="container">
+                <p class="m-0 text-center text-white small">Copyright &copy; Private Diary 2023</p>
+            </div>
+            <!-- /.container -->
+        </footer>
+
+        <!-- Bootstrap core Javascript-->
+        <script src="{% static 'js/script.js' %}"></script>
+<!--        <script src="{% static 'static/js/bootstrap.bundle.min.js' %}"></script>-->
+    </div>
+</body>
+</html>
+
