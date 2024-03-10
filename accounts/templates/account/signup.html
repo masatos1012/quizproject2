@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}サインアップ | Private Diary{% endblock %}
+
+{% block active_signup %}active{% endblock %}
+
+
+{% block contents %}
+{% block header %}
+
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container">
+            <h1 class="masthead-heading mb-0">Private Diary</h1>
+            <h2 class="masthead-subheading mb-0">あなた専用の日記保存サービス</h2>
+            <a href="{% url 'account_login' %}" class="btn btn-primary btn-xl rounded-pill mt-5">LOG IN</a>
+        </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
+{% endblock %}
+
+<div class="container">
+    <div class="row">
+        <div class="my-div-style">
+            <h1>サインアップ</h1>
+            <form method="post" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+
+                {{form.as_p}}
+
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                {% endif %}
+                <button class="btn btn-primary" type="submit">登録</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
