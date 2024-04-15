@@ -1,0 +1,4 @@
+<h1>{{ question.text }}</h1>
+<p>あなたの選択: {{ user_answer.selected_choice.text }}</p>
+<p>正解: {% for choice in question.choice_set.all %}{% if choice.is_correct %}{{ choice.text }}{% endif %}{% endfor %}</p>
+<a href="{% url 'next_question' %}">次の問題へ</a>
